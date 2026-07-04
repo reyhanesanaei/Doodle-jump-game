@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\main.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\main.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/main.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/build/CMakeFiles/DoodleJump.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Player.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Player.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Player.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/build/CMakeFiles/DoodleJump.dir/src/Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Platform.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Platform.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Platform.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/build/CMakeFiles/DoodleJump.dir/src/Platform.cpp.obj"
+}
+]

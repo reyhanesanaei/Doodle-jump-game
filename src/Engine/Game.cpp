@@ -1,55 +1,104 @@
 #include "Engine/Game.hpp"
+
+#include "States/GameOverState.hpp"
+#include "States/GameplayState.hpp"
 #include "States/MenuState.hpp"
 
+#include <memory>
+
 Game::Game()
-    : m_window("Doodle Jump", WINDOW_WIDTH, WINDOW_HEIGHT)
+    : m_window("Simple Doodle Jump", WindowWidth, WindowHeight),
+      m_scores("highscore.txt")
 {
-    // The game always boots into the main menu. The actual switch-over
-    // happens inside the first StateManager::update() call in run(), via
-    // the deferred "pending state" mechanism.
-    m_stateManager.changeState(std::make_unique<MenuState>(*this));
+    loadResources();
+    changeToMenu();
+    m_states.applyPendingState();
 }
 
 void Game::run()
 {
-    while (m_window.isOpen())
+    while(m_window.isOpen())
     {
-        const float deltaTime = m_clock.restart().asSeconds();
-
-        processEvents();   // 1. process events
-        update(deltaTime);  // 2. update game objects
-        render();            // 3. render / draw
-    }
-}
-
-void Game::processEvents()
-{
-    sf::Event event;
-    while (m_window.pollEvent(event))
-    {
-        if (event.type == sf::Event::Closed)
+        while(const auto event = m_window.pollEvent())
         {
-            m_window.close();
-            continue;
+            if(event->is<sf::Event::Closed>())
+            {
+                m_window.close();
+                continue;
+            }
+
+            m_states.handleEvent(*event);
         }
-        m_stateManager.handleEvent(event);
+
+        const float dt = m_clock.restart().asSeconds();
+        m_states.update(dt);
+
+        m_window.clear(sf::Color::White);
+        m_states.render(m_window.getRenderWindow());
+        m_window.display();
     }
 }
 
-void Game::update(float deltaTime)
+void Game::quit()
 {
-    m_stateManager.update(deltaTime);
+    m_window.close();
 }
 
-void Game::render()
+void Game::changeToMenu()
 {
-    m_window.clear(sf::Color(245, 245, 220));
-    m_stateManager.render(m_window.getRenderWindow());
-    m_window.display();
+    m_states.changeState(std::make_unique<MenuState>(*this));
 }
 
-Window& Game::getWindow() { return m_window; }
-StateManager& Game::getStateManager() { return m_stateManager; }
-TextureManager& Game::getTextureManager() { return m_textureManager; }
-FontManager& Game::getFontManager() { return m_fontManager; }
-ScoreManager& Game::getScoreManager() { return m_scoreManager; }
+void Game::startGameplay()
+{
+    m_scores.resetCurrent();
+    m_clock.restart();
+    m_states.changeState(std::make_unique<GameplayState>(*this));
+}
+
+void Game::showGameOver()
+{
+    m_scores.finishRun();
+    m_states.changeState(std::make_unique<GameOverState>(*this, m_scores.currentScore()));
+}
+
+Window& Game::window()
+{
+    return m_window;
+}
+
+ResourceManager<sf::Texture>& Game::textures()
+{
+    return m_textures;
+}
+
+ResourceManager<sf::Font>& Game::fonts()
+{
+    return m_fonts;
+}
+
+ScoreManager& Game::scores()
+{
+    return m_scores;
+}
+
+const ScoreManager& Game::scores() const
+{
+    return m_scores;
+}
+
+void Game::loadResources()
+{
+    m_textures.load("background", "assets/background.png");
+    m_textures.load("player_left", "assets/left_doodle.png");
+    m_textures.load("player_right", "assets/right_doodle.png");
+    m_textures.load("platform_normal", "assets/normal_platform.png");
+    m_textures.load("platform_moving", "assets/moving_platform.png");
+    m_textures.load("platform_breakable", "assets/broken_platform.png");
+    m_textures.load("spring", "assets/spring_sprite.png");
+    m_textures.load("start_button", "assets/start_button.png");
+    m_textures.load("restart_button", "assets/restart_button.png");
+    m_textures.load("menu_button", "assets/menu_button.png");
+
+    m_fonts.load("main", "fonts/ariblk.ttf");
+}

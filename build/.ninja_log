@@ -1,0 +1,21 @@
+# ninja log v7
+7	136	8051425640298838	C:/Users/rey skywalker/Desktop/simple-doodle-jump/build/CMakeFiles/cmake.verify_globs	5f8c77879e4f4005
+203	1205	8051425642243168	CMakeFiles/DoodleJump.dir/src/Managers/ScoreManager.cpp.obj	d098bfbcac0409f6
+241	1894	8051425642629852	CMakeFiles/DoodleJump.dir/src/Platforms/Spring.cpp.obj	432e8cab6eed8453
+261	1899	8051425642792642	CMakeFiles/DoodleJump.dir/src/UI/Button.cpp.obj	ef05d3b4c2b66550
+160	2034	8051425641796137	CMakeFiles/DoodleJump.dir/src/Engine/StateManager.cpp.obj	61b85a89c9531ac3
+142	2081	8051425641631518	CMakeFiles/DoodleJump.dir/main.cpp.obj	bc4ccc727bc7d836
+265	2091	8051425642863511	CMakeFiles/DoodleJump.dir/src/UI/HUD.cpp.obj	cf3baff867139c9d
+256	2160	8051425642745474	CMakeFiles/DoodleJump.dir/src/States/MenuState.cpp.obj	2fbd9198f02088f2
+209	2195	8051425642313263	CMakeFiles/DoodleJump.dir/src/Platforms/BreakablePlatform.cpp.obj	9178fdb158f794f4
+171	2224	8051425641926658	CMakeFiles/DoodleJump.dir/src/Engine/Window.cpp.obj	6ce6421bd1d719e8
+228	2225	8051425642498631	CMakeFiles/DoodleJump.dir/src/Platforms/NormalPlatform.cpp.obj	9eecac9d26e3249e
+177	2339	8051425641960803	CMakeFiles/DoodleJump.dir/src/Entities/Player.cpp.obj	c7e257b69aeb9464
+218	2340	8051425642393409	CMakeFiles/DoodleJump.dir/src/Platforms/MovingPlatform.cpp.obj	d2d2183d5f93e20f
+236	2343	8051425642568930	CMakeFiles/DoodleJump.dir/src/Platforms/Platform.cpp.obj	2b656f336aeca8c7
+246	2421	8051425642685259	CMakeFiles/DoodleJump.dir/src/States/GameOverState.cpp.obj	8cfd312d0be39926
+188	2559	8051425642085212	CMakeFiles/DoodleJump.dir/src/Managers/CollisionManager.cpp.obj	c16dde1a1dc7cb1b
+194	2725	8051425642134725	CMakeFiles/DoodleJump.dir/src/Managers/PlatformManager.cpp.obj	66ae13e20dd2460
+252	2779	8051425642725406	CMakeFiles/DoodleJump.dir/src/States/GameplayState.cpp.obj	fa9c19ab32786fcc
+152	3166	8051425641631518	CMakeFiles/DoodleJump.dir/src/Engine/Game.cpp.obj	f9cec908ae1b6a31
+3166	4020	8051425671793942	DoodleJump.exe	60f9b6b6e693caaa

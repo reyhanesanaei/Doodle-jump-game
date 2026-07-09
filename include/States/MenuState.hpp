@@ -1,25 +1,28 @@
 #pragma once
 
-#include "States/State.hpp"
+#include "Engine/StateManager.hpp"
 #include "UI/Button.hpp"
-#include <SFML/Graphics.hpp>
-#include <memory>
 
-// Main menu: title, all-time high score, and a "Start" button that begins
-// a new gameplay session.
-class MenuState : public State
+#include <SFML/Graphics.hpp>
+
+class Game;
+
+class MenuState : public IState
 {
 public:
     explicit MenuState(Game& game);
 
     void handleEvent(const sf::Event& event) override;
-    void update(float deltaTime) override;
-    void render(sf::RenderTarget& target) override;
+    void update(float dt) override;
+    void render(sf::RenderWindow& window) override;
 
 private:
-    void startGame();
+    void refreshText();
 
+    Game& m_game;
+    sf::Sprite m_background;
+    Button m_startButton;
     sf::Text m_titleText;
     sf::Text m_highScoreText;
-    std::unique_ptr<Button> m_startButton;
+    sf::Text m_hintText;
 };

@@ -1,55 +1,80 @@
 #include "States/MenuState.hpp"
-#include "States/GameplayState.hpp"
+
 #include "Engine/Game.hpp"
+
+#include <string>
 
 namespace
 {
-    const std::string FONT_PATH = "fonts/ariblk.ttf";
+    void fitToWindow(sf::Sprite& sprite)
+    {
+        const auto size = sprite.getTexture().getSize();
+        if(size.x == 0 || size.y == 0)
+            return;
+
+        sprite.setScale({
+            static_cast<float>(Game::WindowWidth) / static_cast<float>(size.x),
+            static_cast<float>(Game::WindowHeight) / static_cast<float>(size.y)
+        });
+    }
+
+    void centerText(sf::Text& text, float y)
+    {
+        const auto bounds = text.getLocalBounds();
+        text.setOrigin({
+            bounds.position.x + bounds.size.x / 2.f,
+            bounds.position.y + bounds.size.y / 2.f
+        });
+        text.setPosition({Game::WindowWidth / 2.f, y});
+    }
 }
 
 MenuState::MenuState(Game& game)
-    : State(game)
+    : m_game(game),
+      m_background(game.textures().get("background")),
+      m_startButton(game.textures().get("start_button")),
+      m_titleText(game.fonts().get("main"), "DOODLE JUMP", 56),
+      m_highScoreText(game.fonts().get("main"), "", 26),
+      m_hintText(game.fonts().get("main"), "Use Left / Right arrows to move", 16)
 {
-    sf::Font& font = m_game.getFontManager().get(FONT_PATH);
+    fitToWindow(m_background);
 
-    m_titleText.setFont(font);
-    m_titleText.setString("DOODLE JUMP");
-    m_titleText.setCharacterSize(40);
-    m_titleText.setFillColor(sf::Color(60, 60, 60));
-    m_titleText.setPosition(50.f, 120.f);
+    m_titleText.setFillColor(sf::Color(35, 45, 55));
+    m_highScoreText.setFillColor(sf::Color(35, 45, 55));
+    m_hintText.setFillColor(sf::Color(35, 45, 55));
 
-    m_highScoreText.setFont(font);
-    m_highScoreText.setCharacterSize(20);
-    m_highScoreText.setFillColor(sf::Color(60, 60, 60));
-    m_highScoreText.setString("HIGH SCORE: " +
-                               std::to_string(m_game.getScoreManager().getHighScore()));
-    m_highScoreText.setPosition(50.f, 190.f);
+    m_startButton.setCenteredPosition({300.f, 560.f}, {0.65f, 0.65f});
 
-    m_startButton = std::make_unique<Button>(
-        font, "Start", sf::Vector2f(160.f, 260.f), sf::Vector2f(160.f, 50.f));
-    m_startButton->setOnClick([this]() { startGame(); });
+    centerText(m_titleText, 245.f);
+    centerText(m_hintText, 715.f);
+    refreshText();
 }
 
 void MenuState::handleEvent(const sf::Event& event)
 {
-    m_startButton->handleEvent(event);
+    const auto* mouse = event.getIf<sf::Event::MouseButtonPressed>();
+    if(!mouse || mouse->button != sf::Mouse::Button::Left)
+        return;
+
+    if(m_startButton.contains(mouse->position))
+        m_game.startGameplay();
 }
 
-void MenuState::update(float /*deltaTime*/)
+void MenuState::update(float)
 {
-    // Nothing animates on the menu itself; present for interface symmetry
-    // and to leave room for future polish (e.g. an idle animation).
 }
 
-void MenuState::render(sf::RenderTarget& target)
+void MenuState::render(sf::RenderWindow& window)
 {
-    target.draw(m_titleText);
-    target.draw(m_highScoreText);
-    m_startButton->draw(target);
+    window.draw(m_background);
+    window.draw(m_titleText);
+    window.draw(m_highScoreText);
+    m_startButton.draw(window);
+    window.draw(m_hintText);
 }
 
-void MenuState::startGame()
+void MenuState::refreshText()
 {
-    m_game.getScoreManager().reset();
-    m_game.getStateManager().changeState(std::make_unique<GameplayState>(m_game));
+    m_highScoreText.setString("HIGH SCORE: " + std::to_string(m_game.scores().highScore()));
+    centerText(m_highScoreText, 345.f);
 }

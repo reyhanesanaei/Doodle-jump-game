@@ -1,77 +1,88 @@
 #include "States/GameOverState.hpp"
-#include "States/GameplayState.hpp"
-#include "States/MenuState.hpp"
+
 #include "Engine/Game.hpp"
+
+#include <string>
 
 namespace
 {
-    const std::string FONT_PATH = "fonts/ariblk.ttf";
+    void fitToWindow(sf::Sprite& sprite)
+    {
+        const auto size = sprite.getTexture().getSize();
+        if(size.x == 0 || size.y == 0)
+            return;
+
+        sprite.setScale({
+            static_cast<float>(Game::WindowWidth) / static_cast<float>(size.x),
+            static_cast<float>(Game::WindowHeight) / static_cast<float>(size.y)
+        });
+    }
+
+    void centerText(sf::Text& text, float y)
+    {
+        const auto bounds = text.getLocalBounds();
+        text.setOrigin({
+            bounds.position.x + bounds.size.x / 2.f,
+            bounds.position.y + bounds.size.y / 2.f
+        });
+        text.setPosition({Game::WindowWidth / 2.f, y});
+    }
 }
 
-GameOverState::GameOverState(Game& game)
-    : State(game)
+GameOverState::GameOverState(Game& game, int finalScore)
+    : m_game(game),
+      m_finalScore(finalScore),
+      m_background(game.textures().get("background")),
+      m_restartButton(game.textures().get("restart_button")),
+      m_menuButton(game.textures().get("menu_button")),
+      m_lostText(game.fonts().get("main"), "YOU LOST", 62),
+      m_scoreText(game.fonts().get("main"), "", 28),
+      m_highScoreText(game.fonts().get("main"), "", 24)
 {
-    sf::Font& font = m_game.getFontManager().get(FONT_PATH);
+    fitToWindow(m_background);
 
-    const int score     = m_game.getScoreManager().getCurrentScore();
-    const int highScore = m_game.getScoreManager().getHighScore();
+    m_lostText.setFillColor(sf::Color::Red);
+    m_scoreText.setFillColor(sf::Color(35, 45, 55));
+    m_highScoreText.setFillColor(sf::Color(35, 45, 55));
 
-    m_titleText.setFont(font);
-    m_titleText.setString("YOU LOST");
-    m_titleText.setCharacterSize(40);
-    m_titleText.setFillColor(sf::Color(200, 30, 30));
-    m_titleText.setPosition(60.f, 140.f);
+    m_restartButton.setCenteredPosition({300.f, 590.f}, {0.65f, 0.65f});
+    m_menuButton.setCenteredPosition({300.f, 700.f}, {0.65f, 0.65f});
 
-    m_scoreText.setFont(font);
-    m_scoreText.setCharacterSize(20);
-    m_scoreText.setFillColor(sf::Color(60, 60, 60));
-    m_scoreText.setString("SCORE: " + std::to_string(score));
-    m_scoreText.setPosition(60.f, 210.f);
-
-    m_highScoreText.setFont(font);
-    m_highScoreText.setCharacterSize(20);
-    m_highScoreText.setFillColor(sf::Color(60, 60, 60));
-    m_highScoreText.setString("HIGH SCORE: " + std::to_string(highScore));
-    m_highScoreText.setPosition(60.f, 240.f);
-
-    m_restartButton = std::make_unique<Button>(
-        font, "Restart", sf::Vector2f(160.f, 300.f), sf::Vector2f(160.f, 45.f));
-    m_restartButton->setOnClick([this]() { restartGame(); });
-
-    m_menuButton = std::make_unique<Button>(
-        font, "Menu", sf::Vector2f(160.f, 355.f), sf::Vector2f(160.f, 45.f));
-    m_menuButton->setOnClick([this]() { returnToMenu(); });
+    centerText(m_lostText, 370.f);
+    refreshText();
 }
 
 void GameOverState::handleEvent(const sf::Event& event)
 {
-    m_restartButton->handleEvent(event);
-    m_menuButton->handleEvent(event);
+    const auto* mouse = event.getIf<sf::Event::MouseButtonPressed>();
+    if(!mouse || mouse->button != sf::Mouse::Button::Left)
+        return;
+
+    if(m_restartButton.contains(mouse->position))
+        m_game.startGameplay();
+    else if(m_menuButton.contains(mouse->position))
+        m_game.changeToMenu();
 }
 
-void GameOverState::update(float /*deltaTime*/)
+void GameOverState::update(float)
 {
-    // Gameplay updates are frozen on the Game Over screen by design (the
-    // GameplayState that produced this screen has already been replaced).
 }
 
-void GameOverState::render(sf::RenderTarget& target)
+void GameOverState::render(sf::RenderWindow& window)
 {
-    target.draw(m_titleText);
-    target.draw(m_scoreText);
-    target.draw(m_highScoreText);
-    m_restartButton->draw(target);
-    m_menuButton->draw(target);
+    window.draw(m_background);
+    window.draw(m_lostText);
+    window.draw(m_scoreText);
+    window.draw(m_highScoreText);
+    m_restartButton.draw(window);
+    m_menuButton.draw(window);
 }
 
-void GameOverState::restartGame()
+void GameOverState::refreshText()
 {
-    // Restart goes straight into a fresh GameplayState, skipping the menu.
-    m_game.getScoreManager().reset();
-    m_game.getStateManager().changeState(std::make_unique<GameplayState>(m_game));
-}
+    m_scoreText.setString("SCORE: " + std::to_string(m_finalScore));
+    m_highScoreText.setString("HIGH SCORE: " + std::to_string(m_game.scores().highScore()));
 
-void GameOverState::returnToMenu()
-{
-    m_game.getStateManager().changeState(std::make_unique<MenuState>(m_game));
+    centerText(m_scoreText, 455.f);
+    centerText(m_highScoreText, 505.f);
 }

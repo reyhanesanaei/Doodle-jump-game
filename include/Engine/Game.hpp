@@ -1,42 +1,40 @@
 #pragma once
 
-#include "Engine/Window.hpp"
-#include "Engine/StateManager.hpp"
 #include "Engine/ResourceManager.hpp"
+#include "Engine/StateManager.hpp"
+#include "Engine/Window.hpp"
 #include "Managers/ScoreManager.hpp"
+
 #include <SFML/Graphics.hpp>
 
-// Top-level owner of every long-lived system: the Window, the StateManager
-// (which holds whichever of Menu/Gameplay/GameOver is active), the shared
-// resource caches, and the ScoreManager. States receive a Game& reference
-// and reach all of these through Game's accessors, so no system has to be
-// passed around individually.
 class Game
 {
 public:
+    static constexpr unsigned int WindowWidth = 600;
+    static constexpr unsigned int WindowHeight = 1000;
+
     Game();
 
     void run();
+    void quit();
 
-    Window& getWindow();
-    StateManager& getStateManager();
-    TextureManager& getTextureManager();
-    FontManager& getFontManager();
-    ScoreManager& getScoreManager();
+    void changeToMenu();
+    void startGameplay();
+    void showGameOver();
+
+    Window& window();
+    ResourceManager<sf::Texture>& textures();
+    ResourceManager<sf::Font>& fonts();
+    ScoreManager& scores();
+    const ScoreManager& scores() const;
 
 private:
-    void processEvents();
-    void update(float deltaTime);
-    void render();
-
-    static constexpr unsigned int WINDOW_WIDTH = 480;
-    static constexpr unsigned int WINDOW_HEIGHT = 800;
+    void loadResources();
 
     Window m_window;
-    StateManager m_stateManager;
-    TextureManager m_textureManager;
-    FontManager m_fontManager;
-    ScoreManager m_scoreManager;
-
+    ResourceManager<sf::Texture> m_textures;
+    ResourceManager<sf::Font> m_fonts;
+    StateManager m_states;
+    ScoreManager m_scores;
     sf::Clock m_clock;
 };

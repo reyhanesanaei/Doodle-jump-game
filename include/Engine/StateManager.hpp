@@ -1,29 +1,31 @@
 #pragma once
 
-#include "States/State.hpp"
-#include <memory>
+#include <SFML/Graphics.hpp>
 
-// Owns exactly one active State and forwards handleEvent/update/render to it.
-// State changes are deferred ("pending") so a state is never destroyed while
-// one of its own member functions is still on the call stack — e.g. it is
-// safe for GameplayState::update() to call changeState() on itself.
+#include <memory>
+#include <utility>
+
+class IState
+{
+public:
+    virtual ~IState() = default;
+
+    virtual void handleEvent(const sf::Event& event) = 0;
+    virtual void update(float dt) = 0;
+    virtual void render(sf::RenderWindow& window) = 0;
+};
+
 class StateManager
 {
 public:
-    StateManager() = default;
-
-    void changeState(std::unique_ptr<State> newState);
+    void changeState(std::unique_ptr<IState> state);
+    void applyPendingState();
 
     void handleEvent(const sf::Event& event);
-    void update(float deltaTime);
-    void render(sf::RenderTarget& target);
-
-    bool hasState() const;
+    void update(float dt);
+    void render(sf::RenderWindow& window);
 
 private:
-    void applyPendingChange();
-
-    std::unique_ptr<State> m_currentState;
-    std::unique_ptr<State> m_pendingState;
-    bool m_hasPendingChange{false};
+    std::unique_ptr<IState> m_currentState;
+    std::unique_ptr<IState> m_pendingState;
 };

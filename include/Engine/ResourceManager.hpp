@@ -1,73 +1,49 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
+#include <utility>
 
-// Generic, type-safe resource cache.
-//
-// Works for any SFML asset type exposing loadFromFile(const std::string&) —
-// sf::Texture, sf::Font, sf::SoundBuffer, etc. Each asset is loaded from disk
-// at most once and reused (cached) by file path for the rest of the
-// program's lifetime, which avoids redundant disk I/O for assets shared by
-// many objects (e.g. every "normal platform" sprite uses the same texture).
-//
-// Header-only by necessity: a class template's member definitions must be
-// visible at every instantiation point, so splitting this into a .cpp file
-// would require explicit instantiation for every type we ever use — that
-// defeats the purpose of a *generic* manager reusable in later phases.
-//
-// Ownership is managed with std::unique_ptr, so every loaded resource is
-// automatically destroyed (no manual "delete", no leaks) when the manager
-// itself goes out of scope.
-template <typename T>
+template <typename Resource>
 class ResourceManager
 {
 public:
-    ResourceManager() = default;
-
-    // Non-copyable: copying would either duplicate GPU resources or require
-    // deep-copying sf::Texture/sf::Font, neither of which we want.
-    ResourceManager(const ResourceManager&) = delete;
-    ResourceManager& operator=(const ResourceManager&) = delete;
-
-    // Returns a reference to the cached resource at filePath, loading it
-    // from disk on first request.
-    T& get(const std::string& filePath)
+    Resource& load(const std::string& id, const std::string& filename)
     {
-        auto it = m_resources.find(filePath);
-        if (it != m_resources.end())
-            return *(it->second);
+        if(auto existing = m_resources.find(id); existing != m_resources.end())
+            return *existing->second;
 
-        auto resource = std::make_unique<T>();
-        if (!resource->loadFromFile(filePath))
-            throw std::runtime_error("ResourceManager: failed to load resource \"" + filePath + "\"");
+        auto resource = std::make_unique<Resource>();
 
-        T& reference = *resource;
-        m_resources.emplace(filePath, std::move(resource));
-        return reference;
+        bool loaded = false;
+        if constexpr (std::is_same_v<Resource, sf::Font>)
+            loaded = resource->openFromFile(filename);
+        else
+            loaded = resource->loadFromFile(filename);
+
+        if(!loaded)
+            throw std::runtime_error("Failed to load resource: " + filename);
+
+        auto* raw = resource.get();
+        m_resources.emplace(id, std::move(resource));
+        return *raw;
     }
 
-    bool isLoaded(const std::string& filePath) const
+    Resource& get(const std::string& id)
     {
-        return m_resources.find(filePath) != m_resources.end();
+        return *m_resources.at(id);
     }
 
-    void clear()
+    const Resource& get(const std::string& id) const
     {
-        m_resources.clear();
+        return *m_resources.at(id);
     }
 
 private:
-    std::unordered_map<std::string, std::unique_ptr<T>> m_resources;
+    std::unordered_map<std::string, std::unique_ptr<Resource>> m_resources;
 };
-
-// Convenience aliases for the asset types this project needs.
-// Phase 2 can reuse the same template for new asset kinds (e.g. sf::SoundBuffer
-// for sound effects) without touching this file.
-using TextureManager     = ResourceManager<sf::Texture>;
-using FontManager         = ResourceManager<sf::Font>;
-using SoundBufferManager = ResourceManager<sf::SoundBuffer>;

@@ -1,40 +1,40 @@
 #include "Engine/StateManager.hpp"
 
-void StateManager::changeState(std::unique_ptr<State> newState)
+void StateManager::changeState(std::unique_ptr<IState> state)
 {
-    m_pendingState = std::move(newState);
-    m_hasPendingChange = true;
+    m_pendingState = std::move(state);
 }
 
-void StateManager::applyPendingChange()
+void StateManager::applyPendingState()
 {
-    if (m_hasPendingChange)
-    {
+    if(m_pendingState)
         m_currentState = std::move(m_pendingState);
-        m_hasPendingChange = false;
-    }
 }
 
 void StateManager::handleEvent(const sf::Event& event)
 {
-    if (m_currentState)
+    applyPendingState();
+
+    if(m_currentState)
         m_currentState->handleEvent(event);
+
+    applyPendingState();
 }
 
-void StateManager::update(float deltaTime)
+void StateManager::update(float dt)
 {
-    applyPendingChange();
-    if (m_currentState)
-        m_currentState->update(deltaTime);
+    applyPendingState();
+
+    if(m_currentState)
+        m_currentState->update(dt);
+
+    applyPendingState();
 }
 
-void StateManager::render(sf::RenderTarget& target)
+void StateManager::render(sf::RenderWindow& window)
 {
-    if (m_currentState)
-        m_currentState->render(target);
-}
+    applyPendingState();
 
-bool StateManager::hasState() const
-{
-    return m_currentState != nullptr;
+    if(m_currentState)
+        m_currentState->render(window);
 }

@@ -1,29 +1,30 @@
 #pragma once
 
-#include "States/State.hpp"
+#include "Engine/StateManager.hpp"
 #include "UI/Button.hpp"
-#include <SFML/Graphics.hpp>
-#include <memory>
 
-// "YOU LOST" screen: shows the final score and the all-time high score,
-// with Restart (-> straight back into a new GameplayState) and Main Menu
-// buttons.
-class GameOverState : public State
+#include <SFML/Graphics.hpp>
+
+class Game;
+
+class GameOverState : public IState
 {
 public:
-    explicit GameOverState(Game& game);
+    GameOverState(Game& game, int finalScore);
 
     void handleEvent(const sf::Event& event) override;
-    void update(float deltaTime) override;
-    void render(sf::RenderTarget& target) override;
+    void update(float dt) override;
+    void render(sf::RenderWindow& window) override;
 
 private:
-    void restartGame();
-    void returnToMenu();
+    void refreshText();
 
-    sf::Text m_titleText;
+    Game& m_game;
+    int m_finalScore;
+    sf::Sprite m_background;
+    Button m_restartButton;
+    Button m_menuButton;
+    sf::Text m_lostText;
     sf::Text m_scoreText;
     sf::Text m_highScoreText;
-    std::unique_ptr<Button> m_restartButton;
-    std::unique_ptr<Button> m_menuButton;
 };

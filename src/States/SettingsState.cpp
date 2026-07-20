@@ -45,6 +45,19 @@ SettingsState::SettingsState(Game& game)
     centerText(m_volumeText, 400.f);    
     m_volumeText.setFillColor(sf::Color(35, 45, 55));
     m_volumeText.setPosition({300.f, 320.f});
+//slider of volume
+    m_sliderBar.setSize({220.f, 6.f});
+    m_sliderBar.setFillColor(sf::Color(170, 170, 170));
+    m_sliderBar.setPosition({200.f, 420.f});
+
+    m_sliderKnob.setRadius(10.f);
+    m_sliderKnob.setOrigin({10.f, 10.f});
+    m_sliderKnob.setFillColor(sf::Color(40, 170, 255));
+
+    float knobX = 200.f + (220.f * (m_volume / 100.f));
+    // align knob vertically to the center of the slider bar
+    float knobY = m_sliderBar.getPosition().y + m_sliderBar.getSize().y / 2.f;
+    m_sliderKnob.setPosition({knobX, knobY});
 //
 }
 
@@ -67,6 +80,10 @@ void SettingsState::render(sf::RenderWindow& window)
     window.draw(m_background);
     window.draw(m_titleText);
     window.draw(m_volumeText);  
-    m_backButton.draw(window);  //phase2. back button
-    window.draw(m_volumeText);  //phase2. volume text
+//phase2.
+    m_backButton.draw(window);   //back button
+    window.draw(m_volumeText);  //volume text
+    //slider of volume
+    window.draw(m_sliderBar);
+    window.draw(m_sliderKnob);
 }

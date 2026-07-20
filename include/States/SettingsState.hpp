@@ -4,6 +4,10 @@
 #include "UI/Button.hpp"
 
 #include <SFML/Graphics.hpp>
+//phase2. for slider of volume
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
+//
 
 class Game;
 
@@ -21,6 +25,11 @@ private:
     sf::Sprite m_background;
     Button m_backButton;    //phase2
     sf::Text m_titleText;
+//phase2
+    sf::Text m_volumeText;  
+    //for slider of volume
+    sf::RectangleShape m_sliderBar;
+    sf::CircleShape m_sliderKnob;
 
-    sf::Text m_volumeText;  //phase2
+    float m_volume = 60.f;
 };

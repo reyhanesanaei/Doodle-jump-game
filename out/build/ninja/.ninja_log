@@ -1,0 +1,25 @@
+# ninja log v7
+28	91	8061021829268172	C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/cmake.verify_globs	b234f14a3b4b8381
+119	5787	8061018339216721	CMakeFiles/DoodleJump.dir/src/Engine/StateManager.cpp.obj	1e31ffb1b1154274
+131	5815	8061018339331950	CMakeFiles/DoodleJump.dir/src/Engine/Window.cpp.obj	57cc11625e2dde6e
+97	5848	8061018338998150	CMakeFiles/DoodleJump.dir/src/Bullets/Bullet.cpp.obj	fb6abc6afad51a36
+143	5889	8061018339447000	CMakeFiles/DoodleJump.dir/src/Entities/Monster.cpp.obj	a36dd9178c1c51aa
+86	8367	8061018338878654	CMakeFiles/DoodleJump.dir/main.cpp.obj	fc9c3a221bcc5a0f
+5801	11329	8061018396025878	CMakeFiles/DoodleJump.dir/src/Entities/Player.cpp.obj	e392f4a66c63f0fb
+5815	11859	8061018396172499	CMakeFiles/DoodleJump.dir/src/Managers/CollisionManager.cpp.obj	89cf8b49a8df4f00
+5849	12665	8061018396504975	CMakeFiles/DoodleJump.dir/src/Managers/MonsterManager.cpp.obj	a57d09e6a4cae939
+5889	13594	8061018396912505	CMakeFiles/DoodleJump.dir/src/Managers/PlatformManager.cpp.obj	c800492bab20f498
+168	3650	8061021130414604	CMakeFiles/DoodleJump.dir/src/Managers/ScoreManager.cpp.obj	70b67713707b221a
+193	5765	8061021130658997	CMakeFiles/DoodleJump.dir/src/Platforms/MovingPlatform.cpp.obj	37190d3488b0d639
+181	6058	8061021130557179	CMakeFiles/DoodleJump.dir/src/Platforms/BreakablePlatform.cpp.obj	9aa3d3455f9baab6
+204	6143	8061021130772675	CMakeFiles/DoodleJump.dir/src/Platforms/NormalPlatform.cpp.obj	1ad8d54e1719ba5c
+215	6185	8061021130887093	CMakeFiles/DoodleJump.dir/src/Platforms/Platform.cpp.obj	f64418f7dde36819
+6185	7380	8061021190587231	CMakeFiles/DoodleJump.dir/src/States/SettingsState.cpp.obj	4a4b4f655591166f
+3651	9751	8061021165255462	CMakeFiles/DoodleJump.dir/src/Platforms/Spring.cpp.obj	f395c831af97af28
+7381	12558	8061021202545566	CMakeFiles/DoodleJump.dir/src/UI/Button.cpp.obj	b52b8ad4176179ea
+5765	13396	8061021186392070	CMakeFiles/DoodleJump.dir/src/States/GameOverState.cpp.obj	98b8b7cee059e41c
+6143	13631	8061021190163803	CMakeFiles/DoodleJump.dir/src/States/MenuState.cpp.obj	3da9356cfa9fc407
+6058	15658	8061021189322611	CMakeFiles/DoodleJump.dir/src/States/GameplayState.cpp.obj	c442aef7946401e6
+161	2936	8061021461051924	CMakeFiles/DoodleJump.dir/src/UI/HUD.cpp.obj	1bad3e0019078339
+108	4614	8061021830064540	CMakeFiles/DoodleJump.dir/src/Engine/Game.cpp.obj	b1a5c6a525149126
+4615	6726	8061021875142610	bin/DoodleJump.exe	4a3a3e0ff06c9228

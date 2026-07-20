@@ -1,0 +1,3 @@
+C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir
+C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/edit_cache.dir
+C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/rebuild_cache.dir

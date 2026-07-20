@@ -1,0 +1,134 @@
+[
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\main.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\main.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/main.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Bullets\\Bullet.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Bullets\\Bullet.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Bullets/Bullet.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Bullets/Bullet.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Engine\\Game.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Engine\\Game.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Engine/Game.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Engine/Game.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Engine\\StateManager.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Engine\\StateManager.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Engine/StateManager.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Engine/StateManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Engine\\Window.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Engine\\Window.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Engine/Window.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Engine/Window.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Entities\\Monster.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Entities\\Monster.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Entities/Monster.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Entities/Monster.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Entities\\Player.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Entities\\Player.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Entities/Player.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Entities/Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Managers\\CollisionManager.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Managers\\CollisionManager.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Managers/CollisionManager.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Managers/CollisionManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Managers\\MonsterManager.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Managers\\MonsterManager.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Managers/MonsterManager.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Managers/MonsterManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Managers\\PlatformManager.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Managers\\PlatformManager.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Managers/PlatformManager.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Managers/PlatformManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Managers\\ScoreManager.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Managers\\ScoreManager.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Managers/ScoreManager.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Managers/ScoreManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Platforms\\BreakablePlatform.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Platforms\\BreakablePlatform.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Platforms/BreakablePlatform.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Platforms/BreakablePlatform.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Platforms\\MovingPlatform.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Platforms\\MovingPlatform.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Platforms/MovingPlatform.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Platforms/MovingPlatform.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Platforms\\NormalPlatform.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Platforms\\NormalPlatform.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Platforms/NormalPlatform.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Platforms/NormalPlatform.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Platforms\\Platform.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Platforms\\Platform.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Platforms/Platform.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Platforms/Platform.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Platforms\\Spring.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Platforms\\Spring.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Platforms/Spring.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/Platforms/Spring.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\States\\GameOverState.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\States\\GameOverState.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/States/GameOverState.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/States/GameOverState.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\States\\GameplayState.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\States\\GameplayState.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/States/GameplayState.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/States/GameplayState.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\States\\MenuState.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\States\\MenuState.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/States/MenuState.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/States/MenuState.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\States\\SettingsState.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\States\\SettingsState.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/States/SettingsState.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/States/SettingsState.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\UI\\Button.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\UI\\Button.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/UI/Button.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/UI/Button.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -g -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\UI\\HUD.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\UI\\HUD.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/UI/HUD.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/out/build/ninja/CMakeFiles/DoodleJump.dir/src/UI/HUD.cpp.obj"
+}
+]

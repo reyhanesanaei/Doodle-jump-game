@@ -19,6 +19,6 @@ public:
 private:
     Game& m_game;
     sf::Sprite m_background;
-    Button m_backButton;
+    Button m_backButton;    //phase2
     sf::Text m_titleText;
 };

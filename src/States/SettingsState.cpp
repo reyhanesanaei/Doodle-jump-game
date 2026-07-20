@@ -26,20 +26,20 @@ namespace
             bounds.position.y + bounds.size.y / 2.f
         });
         text.setPosition({Game::WindowWidth / 2.f, y});
-    }
+    } 
 }
 
 SettingsState::SettingsState(Game& game)
     : m_game(game),
       m_background(game.textures().get("background")),
-      m_backButton(game.textures().get("back_button")),
+      m_backButton(game.textures().get("back_button")), //phase2
       m_titleText(game.fonts().get("main"), "SETTINGS", 52)
 {
     fitToWindow(m_background);
 
     m_titleText.setFillColor(sf::Color(35, 45, 55));
     centerText(m_titleText, 220.f);
-    m_backButton.setCenteredPosition({300.f, 760.f}, {0.65f, 0.65f});
+    m_backButton.setCenteredPosition({300.f, 760.f}, {0.33f, 0.33f});
 }
 
 void SettingsState::handleEvent(const sf::Event& event)

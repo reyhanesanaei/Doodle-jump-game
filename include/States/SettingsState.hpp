@@ -4,7 +4,7 @@
 #include "UI/Button.hpp"
 
 #include <SFML/Graphics.hpp>
-//phase2. for slider of volume
+//for slider of volume
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 //
@@ -20,12 +20,14 @@ public:
     void update(float dt) override;
     void render(sf::RenderWindow& window) override;
 
+    bool m_draggingSlider = false;  //for mouse dragging of slider knob
+
 private:
     Game& m_game;
     sf::Sprite m_background;
-    Button m_backButton;    //phase2
+    Button m_backButton;
     sf::Text m_titleText;
-//phase2
+
     sf::Text m_volumeText;  
     //for slider of volume
     sf::RectangleShape m_sliderBar;

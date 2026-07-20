@@ -63,12 +63,55 @@ SettingsState::SettingsState(Game& game)
 
 void SettingsState::handleEvent(const sf::Event& event)
 {
-    const auto* mouse = event.getIf<sf::Event::MouseButtonPressed>();
-    if (!mouse || mouse->button != sf::Mouse::Button::Left)
-        return;
+    // Handle mouse button press
+    if (const auto* mouse = event.getIf<sf::Event::MouseButtonPressed>())
+    {
+        if (mouse->button == sf::Mouse::Button::Left)
+        {
+            // Check if Back button was clicked
+            if (m_backButton.contains(mouse->position))
+            {
+                m_game.changeToMenu();
+            }
 
-    if (m_backButton.contains(mouse->position))
-        m_game.changeToMenu();
+            // Check if slider knob was clicked
+            if (m_sliderKnob.getGlobalBounds().contains(
+                sf::Vector2f(mouse->position)))
+            {
+                m_draggingSlider = true;
+            }
+        }
+    }
+
+    // Handle mouse button release - stop dragging
+    if (event.is<sf::Event::MouseButtonReleased>())
+    {
+        m_draggingSlider = false;
+    }
+
+    // Handle mouse movement - update slider knob position and volume
+    if (const auto* mouse = event.getIf<sf::Event::MouseMoved>())
+    {
+        if (m_draggingSlider)
+        {
+            float x = static_cast<float>(mouse->position.x);
+
+            // Clamp x position to slider bar bounds
+            const float left = m_sliderBar.getPosition().x;
+            const float right = left + m_sliderBar.getSize().x;
+
+            if (x < left)
+                x = left;
+            if (x > right)
+                x = right;
+
+            // Update knob position, maintaining its vertical alignment
+            m_sliderKnob.setPosition({x, m_sliderKnob.getPosition().y});
+
+            // Convert knob position to volume percentage (0-100)
+            m_volume = ((x - left) / m_sliderBar.getSize().x) * 100.f;
+        }
+    }
 }
 
 void SettingsState::update(float)

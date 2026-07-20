@@ -25,4 +25,6 @@ private:
     sf::Text m_titleText;
     sf::Text m_highScoreText;
     sf::Text m_hintText;
+
+    Button m_settingsButton;    //phase2
 };

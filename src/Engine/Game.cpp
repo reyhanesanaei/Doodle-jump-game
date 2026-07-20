@@ -71,11 +71,10 @@ void Game::changeToMenu()
 }
 
 //phase2
-/*void Game::changeToSettings()
+void Game::changeToSettings()
 {
     m_states.changeState(std::make_unique<SettingsState>(*this));
 }
-*/
 //
 
 void Game::startGameplay()

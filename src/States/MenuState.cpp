@@ -33,6 +33,7 @@ MenuState::MenuState(Game& game)
     : m_game(game),
       m_background(game.textures().get("background")),
       m_startButton(game.textures().get("start_button")),
+      m_settingsButton(game.textures().get("settings_button")), //phase2
       m_titleText(game.fonts().get("main"), "DOODLE JUMP", 56),
       m_highScoreText(game.fonts().get("main"), "", 26),
       m_hintText(game.fonts().get("main"), "Use Left / Right arrows to move", 16)
@@ -44,6 +45,7 @@ MenuState::MenuState(Game& game)
     m_hintText.setFillColor(sf::Color(35, 45, 55));
 
     m_startButton.setCenteredPosition({300.f, 560.f}, {0.65f, 0.65f});
+    m_settingsButton.setCenteredPosition({300.f, 650.f}, {0.32f, 0.32f});    //phase2
 
     centerText(m_titleText, 245.f);
     centerText(m_hintText, 715.f);
@@ -56,9 +58,16 @@ void MenuState::handleEvent(const sf::Event& event)
     const auto* mouse = event.getIf<sf::Event::MouseButtonPressed>();
     if(!mouse || mouse->button != sf::Mouse::Button::Left)
         return;
-
     if(m_startButton.contains(mouse->position))
+    {
         m_game.startGameplay();
+    }
+//phase2
+    if(m_settingsButton.contains(mouse->position))
+    {
+        m_game.changeToSettings();
+    }
+//
 }
 
 void MenuState::update(float)
@@ -71,6 +80,7 @@ void MenuState::render(sf::RenderWindow& window)
     window.draw(m_titleText);
     window.draw(m_highScoreText);
     m_startButton.draw(window);
+    m_settingsButton.draw(window);   //phase2
     window.draw(m_hintText);
 }
 

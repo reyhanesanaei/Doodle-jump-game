@@ -34,4 +34,13 @@ private:
     sf::CircleShape m_sliderKnob;
 
     float m_volume = 60.f;
+
+    //game mode: easy, medium, hard
+    sf::Text m_gameModeText;
+
+    sf::Text m_easyText;
+    sf::Text m_normalText;
+    sf::Text m_hardText;
+
+    int m_selectedMode = 1; // 0 = Easy, 1 = Normal, 2 = Hard
 };

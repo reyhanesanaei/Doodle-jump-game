@@ -32,9 +32,14 @@ namespace
 SettingsState::SettingsState(Game& game)
     : m_game(game),
       m_background(game.textures().get("background")),
-      m_backButton(game.textures().get("back_button")), //phase2
+      m_backButton(game.textures().get("back_button")),
       m_titleText(game.fonts().get("main"), "SETTINGS", 52),
-      m_volumeText(game.fonts().get("main"), "Volume", 32)  //phase2. volume text
+      m_volumeText(game.fonts().get("main"), "Volume", 32),  //volume text
+      m_gameModeText(game.fonts().get("main"), "Game Mode", 32),
+      //game mode: easy, medium, hard
+      m_easyText(game.fonts().get("main"), "Easy", 28),
+      m_normalText(game.fonts().get("main"), "Normal", 28),
+      m_hardText(game.fonts().get("main"), "Hard", 28)
 {
     fitToWindow(m_background);
 
@@ -58,6 +63,31 @@ SettingsState::SettingsState(Game& game)
     // align knob vertically to the center of the slider bar
     float knobY = m_sliderBar.getPosition().y + m_sliderBar.getSize().y / 2.f;
     m_sliderKnob.setPosition({knobX, knobY});
+
+//game mode: easy, medium, hard
+    m_gameModeText.setFont(game.fonts().get("main"));
+    m_gameModeText.setString("Game Mode");
+    m_gameModeText.setCharacterSize(32);
+    m_gameModeText.setFillColor(sf::Color(35, 45, 55));
+    centerText(m_gameModeText, 500.f);
+
+    m_easyText.setFont(game.fonts().get("main"));
+    m_easyText.setString("Easy");
+    m_easyText.setCharacterSize(24);
+    m_easyText.setFillColor(sf::Color(35, 45, 55));
+    centerText(m_easyText, 550.f);
+
+    m_normalText.setFont(game.fonts().get("main"));
+    m_normalText.setString("Normal");
+    m_normalText.setCharacterSize(24);
+    m_normalText.setFillColor(sf::Color(35, 45, 55));
+    centerText(m_normalText, 600.f);
+
+    m_hardText.setFont(game.fonts().get("main"));
+    m_hardText.setString("Hard");
+    m_hardText.setCharacterSize(24);
+    m_hardText.setFillColor(sf::Color(35, 45, 55));
+    centerText(m_hardText, 650.f);
 //
 }
 
@@ -80,7 +110,34 @@ void SettingsState::handleEvent(const sf::Event& event)
             {
                 m_draggingSlider = true;
             }
+
+            // Check if Easy mode was clicked
+            if (m_easyText.getGlobalBounds().contains(sf::Vector2f(mouse->position)))
+            {
+                m_selectedMode = 0;
+            }
+
+            // Check if Normal mode was clicked
+            if (m_normalText.getGlobalBounds().contains(sf::Vector2f(mouse->position)))
+            {
+                m_selectedMode = 1;
+            }
+
+            // Check if Hard mode was clicked
+            if (m_hardText.getGlobalBounds().contains(sf::Vector2f(mouse->position)))
+            {
+                m_selectedMode = 2;
+            }
         }
+
+        m_easyText.setFillColor(
+            m_selectedMode == 0 ? sf::Color::Blue : sf::Color::Black);
+
+        m_normalText.setFillColor(
+            m_selectedMode == 1 ? sf::Color::Blue : sf::Color::Black);
+
+        m_hardText.setFillColor(
+            m_selectedMode == 2 ? sf::Color::Blue : sf::Color::Black);
     }
 
     // Handle mouse button release - stop dragging
@@ -129,4 +186,10 @@ void SettingsState::render(sf::RenderWindow& window)
     //slider of volume
     window.draw(m_sliderBar);
     window.draw(m_sliderKnob);
+
+//game mode: easy, medium, hard
+    window.draw(m_gameModeText);
+    window.draw(m_easyText);
+    window.draw(m_normalText);
+    window.draw(m_hardText);
 }

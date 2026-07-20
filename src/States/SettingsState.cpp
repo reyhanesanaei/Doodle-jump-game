@@ -33,13 +33,19 @@ SettingsState::SettingsState(Game& game)
     : m_game(game),
       m_background(game.textures().get("background")),
       m_backButton(game.textures().get("back_button")), //phase2
-      m_titleText(game.fonts().get("main"), "SETTINGS", 52)
+      m_titleText(game.fonts().get("main"), "SETTINGS", 52),
+      m_volumeText(game.fonts().get("main"), "Volume", 32)  //phase2. volume text
 {
     fitToWindow(m_background);
 
     m_titleText.setFillColor(sf::Color(35, 45, 55));
     centerText(m_titleText, 220.f);
-    m_backButton.setCenteredPosition({300.f, 760.f}, {0.33f, 0.33f});
+    m_backButton.setCenteredPosition({300.f, 760.f}, {0.33f, 0.33f});   //phase2. back button
+//phase2. volume text
+    centerText(m_volumeText, 400.f);    
+    m_volumeText.setFillColor(sf::Color(35, 45, 55));
+    m_volumeText.setPosition({300.f, 320.f});
+//
 }
 
 void SettingsState::handleEvent(const sf::Event& event)
@@ -60,5 +66,7 @@ void SettingsState::render(sf::RenderWindow& window)
 {
     window.draw(m_background);
     window.draw(m_titleText);
-    m_backButton.draw(window);
+    window.draw(m_volumeText);  
+    m_backButton.draw(window);  //phase2. back button
+    window.draw(m_volumeText);  //phase2. volume text
 }

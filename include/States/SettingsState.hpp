@@ -21,4 +21,6 @@ private:
     sf::Sprite m_background;
     Button m_backButton;    //phase2
     sf::Text m_titleText;
+
+    sf::Text m_volumeText;  //phase2
 };

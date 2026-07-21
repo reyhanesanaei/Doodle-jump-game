@@ -31,6 +31,12 @@
 },
 {
   "directory": "C:/Users/HP/Desktop/simple-doodle-jump/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Entities\\Hole.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Entities\\Hole.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Entities/Hole.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/build/CMakeFiles/DoodleJump.dir/src/Entities/Hole.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/build",
   "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Entities\\Monster.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Entities\\Monster.cpp",
   "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Entities/Monster.cpp",
   "output": "C:/Users/HP/Desktop/simple-doodle-jump/build/CMakeFiles/DoodleJump.dir/src/Entities/Monster.cpp.obj"
@@ -46,6 +52,12 @@
   "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Managers\\CollisionManager.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Managers\\CollisionManager.cpp",
   "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Managers/CollisionManager.cpp",
   "output": "C:/Users/HP/Desktop/simple-doodle-jump/build/CMakeFiles/DoodleJump.dir/src/Managers/CollisionManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/HP/Desktop/simple-doodle-jump/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -IC:/Users/HP/Desktop/simple-doodle-jump/include -std=gnu++17 -o CMakeFiles\\DoodleJump.dir\\src\\Managers\\HoleManager.cpp.obj -c C:\\Users\\HP\\Desktop\\simple-doodle-jump\\src\\Managers\\HoleManager.cpp",
+  "file": "C:/Users/HP/Desktop/simple-doodle-jump/src/Managers/HoleManager.cpp",
+  "output": "C:/Users/HP/Desktop/simple-doodle-jump/build/CMakeFiles/DoodleJump.dir/src/Managers/HoleManager.cpp.obj"
 },
 {
   "directory": "C:/Users/HP/Desktop/simple-doodle-jump/build",

@@ -84,6 +84,14 @@ build CMakeFiles/DoodleJump.dir/src/Engine/Window.cpp.obj: CXX_COMPILER__DoodleJ
   OBJECT_FILE_DIR = CMakeFiles\DoodleJump.dir\src\Engine
   TARGET_SUPPORT_DIR = CMakeFiles\DoodleJump.dir
 
+build CMakeFiles/DoodleJump.dir/src/Entities/Hole.cpp.obj: CXX_COMPILER__DoodleJump_unscanned_ C$:/Users/HP/Desktop/simple-doodle-jump/src/Entities/Hole.cpp || cmake_object_order_depends_target_DoodleJump
+  DEP_FILE = CMakeFiles\DoodleJump.dir\src\Entities\Hole.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/HP/Desktop/simple-doodle-jump/include
+  OBJECT_DIR = CMakeFiles\DoodleJump.dir
+  OBJECT_FILE_DIR = CMakeFiles\DoodleJump.dir\src\Entities
+  TARGET_SUPPORT_DIR = CMakeFiles\DoodleJump.dir
+
 build CMakeFiles/DoodleJump.dir/src/Entities/Monster.cpp.obj: CXX_COMPILER__DoodleJump_unscanned_ C$:/Users/HP/Desktop/simple-doodle-jump/src/Entities/Monster.cpp || cmake_object_order_depends_target_DoodleJump
   DEP_FILE = CMakeFiles\DoodleJump.dir\src\Entities\Monster.cpp.obj.d
   FLAGS = -std=gnu++17
@@ -102,6 +110,14 @@ build CMakeFiles/DoodleJump.dir/src/Entities/Player.cpp.obj: CXX_COMPILER__Doodl
 
 build CMakeFiles/DoodleJump.dir/src/Managers/CollisionManager.cpp.obj: CXX_COMPILER__DoodleJump_unscanned_ C$:/Users/HP/Desktop/simple-doodle-jump/src/Managers/CollisionManager.cpp || cmake_object_order_depends_target_DoodleJump
   DEP_FILE = CMakeFiles\DoodleJump.dir\src\Managers\CollisionManager.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/HP/Desktop/simple-doodle-jump/include
+  OBJECT_DIR = CMakeFiles\DoodleJump.dir
+  OBJECT_FILE_DIR = CMakeFiles\DoodleJump.dir\src\Managers
+  TARGET_SUPPORT_DIR = CMakeFiles\DoodleJump.dir
+
+build CMakeFiles/DoodleJump.dir/src/Managers/HoleManager.cpp.obj: CXX_COMPILER__DoodleJump_unscanned_ C$:/Users/HP/Desktop/simple-doodle-jump/src/Managers/HoleManager.cpp || cmake_object_order_depends_target_DoodleJump
+  DEP_FILE = CMakeFiles\DoodleJump.dir\src\Managers\HoleManager.cpp.obj.d
   FLAGS = -std=gnu++17
   INCLUDES = -IC:/Users/HP/Desktop/simple-doodle-jump/include
   OBJECT_DIR = CMakeFiles\DoodleJump.dir
@@ -228,7 +244,7 @@ build CMakeFiles/DoodleJump.dir/src/UI/HUD.cpp.obj: CXX_COMPILER__DoodleJump_uns
 #############################################
 # Link the executable bin\DoodleJump.exe
 
-build bin/DoodleJump.exe: CXX_EXECUTABLE_LINKER__DoodleJump_ CMakeFiles/DoodleJump.dir/main.cpp.obj CMakeFiles/DoodleJump.dir/src/Bullets/Bullet.cpp.obj CMakeFiles/DoodleJump.dir/src/Engine/Game.cpp.obj CMakeFiles/DoodleJump.dir/src/Engine/StateManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Engine/Window.cpp.obj CMakeFiles/DoodleJump.dir/src/Entities/Monster.cpp.obj CMakeFiles/DoodleJump.dir/src/Entities/Player.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/CollisionManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/MonsterManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/PlatformManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/ScoreManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/BreakablePlatform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/MovingPlatform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/NormalPlatform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/Platform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/Spring.cpp.obj CMakeFiles/DoodleJump.dir/src/States/GameOverState.cpp.obj CMakeFiles/DoodleJump.dir/src/States/GameplayState.cpp.obj CMakeFiles/DoodleJump.dir/src/States/MenuState.cpp.obj CMakeFiles/DoodleJump.dir/src/States/SettingsState.cpp.obj CMakeFiles/DoodleJump.dir/src/UI/Button.cpp.obj CMakeFiles/DoodleJump.dir/src/UI/HUD.cpp.obj | C$:/msys64/ucrt64/lib/libsfml-graphics.dll.a C$:/msys64/ucrt64/lib/libsfml-window.dll.a C$:/msys64/ucrt64/lib/libsfml-audio.dll.a C$:/msys64/ucrt64/lib/libsfml-system.dll.a
+build bin/DoodleJump.exe: CXX_EXECUTABLE_LINKER__DoodleJump_ CMakeFiles/DoodleJump.dir/main.cpp.obj CMakeFiles/DoodleJump.dir/src/Bullets/Bullet.cpp.obj CMakeFiles/DoodleJump.dir/src/Engine/Game.cpp.obj CMakeFiles/DoodleJump.dir/src/Engine/StateManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Engine/Window.cpp.obj CMakeFiles/DoodleJump.dir/src/Entities/Hole.cpp.obj CMakeFiles/DoodleJump.dir/src/Entities/Monster.cpp.obj CMakeFiles/DoodleJump.dir/src/Entities/Player.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/CollisionManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/HoleManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/MonsterManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/PlatformManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Managers/ScoreManager.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/BreakablePlatform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/MovingPlatform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/NormalPlatform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/Platform.cpp.obj CMakeFiles/DoodleJump.dir/src/Platforms/Spring.cpp.obj CMakeFiles/DoodleJump.dir/src/States/GameOverState.cpp.obj CMakeFiles/DoodleJump.dir/src/States/GameplayState.cpp.obj CMakeFiles/DoodleJump.dir/src/States/MenuState.cpp.obj CMakeFiles/DoodleJump.dir/src/States/SettingsState.cpp.obj CMakeFiles/DoodleJump.dir/src/UI/Button.cpp.obj CMakeFiles/DoodleJump.dir/src/UI/HUD.cpp.obj | C$:/msys64/ucrt64/lib/libsfml-graphics.dll.a C$:/msys64/ucrt64/lib/libsfml-window.dll.a C$:/msys64/ucrt64/lib/libsfml-audio.dll.a C$:/msys64/ucrt64/lib/libsfml-system.dll.a
   LINK_LIBRARIES = C:/msys64/ucrt64/lib/libsfml-graphics.dll.a  C:/msys64/ucrt64/lib/libsfml-window.dll.a  C:/msys64/ucrt64/lib/libsfml-audio.dll.a  C:/msys64/ucrt64/lib/libsfml-system.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\DoodleJump.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\HP\Desktop\simple-doodle-jump\build && C:\msys64\ucrt64\bin\cmake.exe -E copy_directory C:/Users/HP/Desktop/simple-doodle-jump/assets C:/Users/HP/Desktop/simple-doodle-jump/build/bin/assets && C:\msys64\ucrt64\bin\cmake.exe -E copy_directory C:/Users/HP/Desktop/simple-doodle-jump/fonts C:/Users/HP/Desktop/simple-doodle-jump/build/bin/fonts && C:\msys64\ucrt64\bin\cmake.exe -E copy_if_different C:/Users/HP/Desktop/simple-doodle-jump/highscore.txt C:/Users/HP/Desktop/simple-doodle-jump/build/bin/highscore.txt"
